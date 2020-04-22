@@ -6,9 +6,9 @@ public class GoToShop implements Selection
 	private ArrayList<String> Inventory;
 	private UserInterface ui;
 	
-	public GoToShop(ArrayList<String> inInventory)
+	public GoToShop(ArrayList<String> inInventory, UserInterface inUI)
 	{
-		ui = new UserInterface();
+		ui = inUI;
 		Inventory = inInventory;
 	}
 	@Override

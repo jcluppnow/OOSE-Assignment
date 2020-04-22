@@ -6,9 +6,11 @@ import java.util.*;
 public class ChooseCharacterName implements Selection
 {
 	private MainCharacter gameCharacter;
+	private UserInterface ui;
 	
-	public ChooseCharacterName(MainCharacter mCharacter)
+	public ChooseCharacterName(MainCharacter mCharacter, UserInterface inUI)
 	{
+		ui = inUI;
 		gameCharacter = mCharacter;
 	}
 	
