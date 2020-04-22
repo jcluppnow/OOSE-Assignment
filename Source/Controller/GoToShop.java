@@ -1,10 +1,19 @@
-package Model;
-
+package Controller;
+import Source.View.UserInterface;
+import java.util.*;
 public class GoToShop implements Selection
-{
-    @Override
-    public void doSelection()
-    {
-        System.out.println("STUB FOR SHOP SELECTION STRATEGY.")
-    }
+{	
+	private ArrayList<String> Inventory;
+	private UserInterface ui;
+	
+	public GoToShop(ArrayList<String> inInventory)
+	{
+		ui = new UserInterface();
+		Inventory = inInventory;
+	}
+	@Override
+	public void doSelection()
+	{
+		ui.displayShop(Inventory);
+	}
 }

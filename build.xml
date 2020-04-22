@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Assignment" basedir="." default="clean-build">
+    <property name="Source.dir"       value="Source"/>
+    <property name="Resources.dir" value="Resources"/>
+    <property name="Build.dir"     value="Build"/>
+    <property name="Dist.dir"      value="Dist"/>
+    <property name="main-class"    value="Controller.AvalonApp"/>
+    
+    <target name="clean">
+        <delete dir="${Build.dir}"/>
+        <delete dir="${Dist.dir}"/>
+    </target>
+    
+    <target name="compile">
+        <mkdir dir="${Build.dir}"/>
+        <javac srcdir="${Source.dir}" destdir="${Build.dir}" includeantruntime="false" />
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${Dist.dir}"/>
+        <jar destfile="${Dist.dir}/${ant.project.name}.jar" basedir="${Build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+        <copy todir="${Dist.dir}">
+            <fileset dir="${Resources.dir}"/>
+        </copy>
+    </target>
+    
+    <target name="run" depends="jar">
+        <java jar="${Dist.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="clean-build" depends="clean,jar"/>
+</project>
