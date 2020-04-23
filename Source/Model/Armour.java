@@ -1,4 +1,5 @@
 package Model;
+import Controller.Exceptions.ArmourException;
 
 public class Armour extends Item
 {
@@ -42,27 +43,39 @@ public class Armour extends Item
 	}
 	
 	//MUTATORS
-	public void setMinDefence(int inMinDefence)
+	public void setMinDefence(int inMinDefence) throws ArmourException
 	{
 		if (validateInteger(inMinDefence))
 		{
 			minDefence = inMinDefence;
 		}
+		else
+		{
+			throw new ArmourException("Invalid Minimum Defence - Armour.");
+		}
 	}
 	
-	public void setMaxDefence(int inMaxDefence)
+	public void setMaxDefence(int inMaxDefence) throws ArmourException
 	{
 		if (validateInteger(inMaxDefence))
 		{
 			maxDefence = inMaxDefence;
 		}
+		else
+		{
+			throw new ArmourException("Invalid Maximum Defence - Armour.");
+		}
 	}
 	
-	public void setMaterial(String inMaterial)
+	public void setMaterial(String inMaterial) throws ArmourException
 	{
 		if (validateString(inMaterial))
 		{
 			material = inMaterial;
+		}
+		else
+		{
+			throw new ArmourException("Invalid Material - Armour.");
 		}
 	}
 }		

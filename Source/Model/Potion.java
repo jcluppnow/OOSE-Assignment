@@ -1,4 +1,5 @@
 package Model;
+import Controller.Exceptions.PotionException;
 
 public class Potion extends Item
 {
@@ -42,27 +43,39 @@ public class Potion extends Item
 	}
 	
 	//MUTATORS 
-	public void setMinEffect(int inMinEffect)
+	public void setMinEffect(int inMinEffect) throws PotionException
 	{
 		if (validateInteger(inMinEffect))
 		{
 			minEffect = inMinEffect;
 		}
+		else
+		{
+			throw new PotionException("Invalid Minimum Effect - Potion.");
+		}
 	}
 	
-	public void setMaxEffect(int inMaxEffect)
+	public void setMaxEffect(int inMaxEffect) throws PotionException
 	{
 		if (validateInteger(inMaxEffect))
 		{
 			maxEffect = inMaxEffect;
 		}
+		else
+		{
+			throw new PotionException("Invalid Maximum Effect - Potion.");
+		}
 	}
 	
-	public void setType(char inType)
+	public void setType(char inType) throws PotionException
 	{
 		if (validateCharacter(inType))
 		{
 			type = inType;
+		}
+		else
+		{
+			throw new PotionException("Invalid Type - Potion.");
 		}
 	}
 	

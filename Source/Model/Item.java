@@ -1,4 +1,5 @@
 package Model;
+import Controller.Exceptions.ItemException;
 
 public class Item
 {
@@ -31,19 +32,27 @@ public class Item
 		return cost;
 	}
 	
-	public void setItemName(String inName)
+	public void setItemName(String inName) throws ItemException
 	{
 		if (validateString(inName))
 		{
 			itemName = inName;
 		}
+		else
+		{
+			throw new ItemException("Invalid Item Name - Item.");
+		}
 	}
 	
-	public void setCost(int inCost)
+	public void setCost(int inCost) throws ItemException
 	{
 		if (validateInteger(inCost))
 		{
 			cost = inCost;
+		}
+		else
+		{
+			throw new ItemException("Invalid Item Cost - Item.");
 		}
 	}
 	
