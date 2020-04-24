@@ -3,6 +3,7 @@ package Controller;
 import Source.View.UserInterface;
 import Controller.Selection;
 import FileIO.ReadFile;
+import Model.Item;
 import Model.MainCharacter;
 import java.util.*;
 
@@ -18,7 +19,7 @@ public class MenuController
 	
 	public void run(MainCharacter gameCharacter, UserInterface ui)
 	{
-		ArrayList<String> shopInventory = ((new ReadFile().readCSVFile()));	
+		ArrayList<Item> shopInventory = ((new ReadFile().readCSVFile()));	
 		goToShop = new GoToShop(shopInventory, ui);
 		chooseCharacterName = new ChooseCharacterName(gameCharacter, ui);
 		chooseWeapon = new ChooseWeapon(gameCharacter, ui);

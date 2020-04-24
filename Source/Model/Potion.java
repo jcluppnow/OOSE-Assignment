@@ -42,6 +42,11 @@ public class Potion extends Item
 		return type;
 	}
 	
+	public String toString()
+	{
+		return (super.toString() + " Minimum Effect: " + minEffect + " Maximum Effect: " + maxEffect + " Type:" + type);
+	}
+	
 	//MUTATORS 
 	public void setMinEffect(int inMinEffect) throws PotionException
 	{

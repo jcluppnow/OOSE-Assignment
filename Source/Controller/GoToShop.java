@@ -1,12 +1,14 @@
 package Controller;
 import Source.View.UserInterface;
+import Model.Item;
 import java.util.*;
+
 public class GoToShop implements Selection
 {	
-	private ArrayList<String> Inventory;
+	private ArrayList<Item> Inventory;
 	private UserInterface ui;
 	
-	public GoToShop(ArrayList<String> inInventory, UserInterface inUI)
+	public GoToShop(ArrayList<Item> inInventory, UserInterface inUI)
 	{
 		ui = inUI;
 		Inventory = inInventory;

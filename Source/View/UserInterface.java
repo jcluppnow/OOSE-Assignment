@@ -1,5 +1,6 @@
 package Source.View;
 import Controller.*;
+import Model.Item;
 import java.util.*;
 
 public class UserInterface
@@ -39,17 +40,17 @@ public class UserInterface
 		}
 	}
 	
-	public void displayShop(ArrayList<String> shopInventory)
+	public void displayShop(ArrayList<Item> shopInventory)
 	{
 		System.out.println("Lauren's Humble Wares");
-		for (String item : shopInventory)
+		for (Item item : shopInventory)
 		{
-			System.out.println("\t" + item);
+			System.out.print("\n\t" + item.toString());
 		}
-		System.out.println("\tEnchantment: Damage + 2  - 5  - Add 2 to Attack Damage");
+		System.out.println("\n\tEnchantment: Damage + 2  - 5  - Add 2 to Attack Damage");
 		System.out.println("\tEnchantment: Damage + 5  - 10 - Add 5 to Attack Damage");
 		System.out.println("\tEnchantment: Damage + 2  - 20 - Adds between 5 & 10 to Attack Damage.");
-		System.out.println("\tEnchantment: Damage + 2  - 10 - Amplifies attack damage by 10%. ");
+		System.out.println("\tEnchantment: Damage + 2  - 10 - Amplifies attack damage by 10%.\n ");
 	}
 	
 	public String getCharacterName()

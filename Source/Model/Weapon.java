@@ -49,6 +49,11 @@ public class Weapon extends Item
 		return weaponType;
 	}
 	
+	public String toString()
+	{
+		return (super.toString() + " Minimum Damage: " + minDamage + " Maxiumum Damage: " + maxDamage + " Damage Type: " + damageType + " Weapon Type: " + weaponType);
+	}
+	
 	public void setMinDamage(int inMinDamage) throws WeaponException
 	{
 		if (validateInteger(inMinDamage))

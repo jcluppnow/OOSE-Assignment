@@ -42,6 +42,11 @@ public class Armour extends Item
 		return material;
 	}
 	
+	public String toString()
+	{
+		return super.toString() + " Minimum Defence: " + minDefence + " Maximum Defence: " + maxDefence + " Material: " + material;
+	}
+	
 	//MUTATORS
 	public void setMinDefence(int inMinDefence) throws ArmourException
 	{

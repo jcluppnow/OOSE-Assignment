@@ -56,7 +56,13 @@ public class Item
 		}
 	}
 	
-	//Private Submodules
+	
+	//Protected Submodules
+	public String toString()
+	{
+		return ("Item Name: " + itemName + " Cost: " + cost);
+	}
+	
 	protected boolean validateString(String inName)
 	{
 		boolean validName = true;
@@ -70,6 +76,6 @@ public class Item
 	
 	protected boolean validateInteger(int inInteger)
 	{
-		return (inInteger > 0);
+		return (inInteger >= 0);
 	}
 }
