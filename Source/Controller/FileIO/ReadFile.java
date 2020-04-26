@@ -1,36 +1,29 @@
 package FileIO;
-import Controller.CreateItem;
 import Controller.Exceptions.CreateItemException;
-import Model.Item;
 import java.util.*;
 import java.io.*;
 
 public class ReadFile
 {
-	public ArrayList<Item> readCSVFile()
+	public ArrayList<String> readCSVFile()
 	{
 		String Line;
-		ArrayList<Item> fileContents = new ArrayList<Item>();
+		ArrayList<String> fileContents = new ArrayList<String>();
 		BufferedReader bReader = null;
-		CreateItem itemCreator = new CreateItem();
 		try
 		{
 			bReader = new BufferedReader(new FileReader("Inventory.txt"));
 			String line = bReader.readLine();
 			while (line != null)
 			{
-				try
-				{
-					Item newItem = itemCreator.CreateItem(line);
-					fileContents.add(newItem);
-				}
-				catch (CreateItemException cie)
-				{
-					//Dont add to fileContents
-				}
+				fileContents.add(line);
 				line = bReader.readLine();
 			}
 			bReader.close();
+			fileContents.add("Enchantment: Damage + 2  - 5  - Add 2 to Attack Damage");
+			fileContents.add("Enchantment: Damage + 5  - 10 - Add 5 to Attack Damage");
+			fileContents.add("Enchantment: Damage + 2  - 20 - Adds between 5 & 10 to Attack Damage.");
+			fileContents.add("Enchantment: Damage + 2  - 10 - Amplifies attack damage by 10%.\n ");
 		}
 		catch (IOException ioe)
 		{

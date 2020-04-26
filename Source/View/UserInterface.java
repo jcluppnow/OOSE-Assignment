@@ -1,4 +1,4 @@
-package Source.View;
+package View;
 import Controller.*;
 import Model.Item;
 import java.util.*;
@@ -11,12 +11,13 @@ public class UserInterface
 	public void displayMenu(Map<Integer, Selection> selections)
 	{
 		boolean done = false;
-		while(!done)
+		while (!done)
 		{	
 			try
 			{
 				int selection;
-				System.out.println("(1) Go To Shop \n(2) Choose Character Name \n(3) Choose Weapon \n(4) Choose Armour \n(5) Start Battle \n(6) Exit");
+				System.out.println("(1) Go To Shop \n(2) Choose Character Name \n(3) Choose Weapon \n(4) Choose Armour \n(5) Start Battle \n(6) Exit\n");
+				System.out.print("INPUT: ");
 				selection = Integer.parseInt(input.nextLine());
 				if (selection == 6)
 				{
@@ -40,19 +41,48 @@ public class UserInterface
 		}
 	}
 	
-	public void displayShop(ArrayList<Item> shopInventory)
-	{
-		System.out.println("Lauren's Humble Wares");
-		for (Item item : shopInventory)
+	public int displayShop(ArrayList<String> shopInventory)
+	{ 
+		boolean exit = true;
+		int choice = 0;
+		do
 		{
-			System.out.print("\n\t" + item.toString());
+			try
+			{
+
+			int itemNumber = 1;
+			System.out.println("Lauren's Humble Wares");
+				for (String item : shopInventory)
+				{
+					System.out.print("\n\t(" + itemNumber + ")  " + item);
+					itemNumber++;
+				}
+
+				System.out.println("What would you like to buy - 0 to exit. \nINPUT: ");
+				choice = Integer.parseInt(input.nextLine());
+			}
+			catch (NumberFormatException nfe)
+			{
+				exit = false;
+			}
 		}
-		System.out.println("\n\tEnchantment: Damage + 2  - 5  - Add 2 to Attack Damage");
-		System.out.println("\tEnchantment: Damage + 5  - 10 - Add 5 to Attack Damage");
-		System.out.println("\tEnchantment: Damage + 2  - 20 - Adds between 5 & 10 to Attack Damage.");
-		System.out.println("\tEnchantment: Damage + 2  - 10 - Amplifies attack damage by 10%.\n ");
+		while (exit == false);
+		return choice;
 	}
 	
+	public void displayCharacterInventory(List<Item> characterInventory)
+	{
+//DEBUG CODE
+System.out.println("Reached Display Character Inventory");
+System.out.println("Character Inventory Size: " + characterInventory.size());
+		int itemNumber = 1;
+		for (Item item : characterInventory)
+		{
+			System.out.println(" (" + itemNumber + ") - " + item.toString());
+			itemNumber++;
+		}
+	}
+		
 	public String getCharacterName()
 	{
 		boolean done = false;
@@ -92,4 +122,5 @@ public class UserInterface
 		}
 		return validName;
 	}
+
 }

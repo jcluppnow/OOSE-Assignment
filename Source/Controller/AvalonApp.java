@@ -1,7 +1,7 @@
 package Controller;
 
 import Controller.*;
-import Source.View.UserInterface;
+import View.UserInterface;
 import FileIO.ReadFile;
 import Model.MainCharacter;
 import java.util.*;
@@ -21,7 +21,8 @@ public class AvalonApp
 		}
 		catch (Exception e)
 		{
-			
+			e.printStackTrace();
+			System.out.println("Exception");
 		}
 		
 	}

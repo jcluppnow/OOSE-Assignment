@@ -1,6 +1,6 @@
 package Controller;
 import Model.MainCharacter;
-import Source.View.UserInterface;
+import View.UserInterface;
 import java.util.*;
 public class ChooseWeapon implements Selection
 {
@@ -15,6 +15,6 @@ public class ChooseWeapon implements Selection
 	@Override
 	public void doSelection()
 	{
-		System.out.println("Stub for Choose Weapon");
+		gameCharacter.displayInventory();
 	}
 }

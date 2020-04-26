@@ -1,6 +1,6 @@
 package Controller;
 import Model.MainCharacter;
-import Source.View.UserInterface;
+import View.UserInterface;
 import java.util.*;
 public class ChooseArmour implements Selection
 {
