@@ -23,6 +23,12 @@ public class ChooseCharacterName implements Selection
 		gameCharacter = mCharacter;
 	}
 	
+	/*******************************************************************************
+	* Submodule: doSelection                                                       *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Overriding Parent Selection as part of Strategy Pattern.          *
+	*******************************************************************************/
 	@Override
 	public void doSelection()
 	{

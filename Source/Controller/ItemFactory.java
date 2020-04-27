@@ -19,6 +19,12 @@ import java.util.*;
 
 public class ItemFactory
 {
+	/*******************************************************************************
+	* Submodule: CreateItem                                                        *
+	* Import:    line (String)                                                     *
+	* Export:    newItem (Item)                                                    *
+	* Assertion: Creates and Item depending on the type of the line.               *
+	*******************************************************************************/
 	public Item CreateItem(String line) throws CreateItemException
 	{
 		String[] parts = line.split(",");

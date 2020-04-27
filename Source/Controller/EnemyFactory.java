@@ -26,7 +26,13 @@ public class EnemyFactory
 	private int GoblinProbability;
 	private int OgreProbability;
 	private int DragonProbability;
-	
+
+	/*******************************************************************************
+	* Submodule: EnemyFactory                                                      *
+	* Import:    None 		                                                       *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for EnemyFactory.	         		           *
+	*******************************************************************************/	
 	public EnemyFactory()
 	{
 		//Initial Starting Probabilities of F
@@ -36,11 +42,23 @@ public class EnemyFactory
 		DragonProbability = 0;
 	}
 	
+	/*******************************************************************************
+	* Submodule: toString                                                          *
+	* Import:    None                                                              *
+	* Export:    String                                                            *
+	* Assertion: Converts Probabilities to a String.					           *
+	*******************************************************************************/
 	public String toString()
 	{
 		return "Slime : " + SlimeProbability + " Goblin: " + GoblinProbability + " Ogre: " + OgreProbability + " Dragon: " + DragonProbability + "\n";
 	}
 	
+	/*******************************************************************************
+	* Submodule: CreateEnemy                                                       *
+	* Import:    None                                                              *
+	* Export:    newEnemy (Enemy)                                                  *
+	* Assertion: Creates enemy object based on calculate probability.	           *
+	*******************************************************************************/
 	public Enemy CreateEnemy()
 	{
 		Enemy newEnemy = null;
@@ -69,6 +87,12 @@ public class EnemyFactory
 		return newEnemy;
 	}
 	
+	/*******************************************************************************
+	* Submodule: calcEnemy                                                         *
+	* Import:    None                                                              *
+	* Export:    foundEnemy (String)                                               *
+	* Assertion: Calculates probability of enemy spawning.				           *
+	*******************************************************************************/
 	private String calcEnemy()
 	{
 		ArrayList<String> enemies = new ArrayList<String>();
@@ -111,6 +135,12 @@ public class EnemyFactory
 		return foundEnemy;
 	}
 	
+	/*******************************************************************************
+	* Submodule: timeStepProbabilities                                             *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Increment/Decrement Probabilities every run.			           *
+	*******************************************************************************/
 	private void timeStepProbabilities()
 	{
 		if(SlimeProbability > 5)
@@ -135,6 +165,12 @@ public class EnemyFactory
 		}
 	}
 	
+	/*******************************************************************************
+	* Submodule: getRandom                                                         *
+	* Import:    None                                                              *
+	* Export:    value (Integer)                                                   *
+	* Assertion: Calculates a Random Integer between 1 and 100.			           *
+	*******************************************************************************/
 	public int getRandom()
     {
        int inMaximum = 99;

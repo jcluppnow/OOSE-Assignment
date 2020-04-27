@@ -13,12 +13,25 @@ public class ChooseWeapon implements Selection
 {
 	private MainCharacter gameCharacter;
 	private UserInterface ui;
+	
+	/*******************************************************************************
+	* Submodule: ChooseWeapon                                                      *
+	* Import:    inGameCharacter (MainCharacter), inUI (UserInterface)             *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for ChooseWeapon.				           *
+	*******************************************************************************/
 	public ChooseWeapon(MainCharacter inGameCharacter, UserInterface inUI)
 	{
 		this.gameCharacter = inGameCharacter;
 		this.ui = inUI;
 	}
-		
+	
+	/*******************************************************************************
+	* Submodule: doSelection                                                       *
+	* Import:    None                                                    *
+	* Export:    None                                                              *
+	* Assertion: Overriding Parent Selection as a part of the Strategy Pattern.    *
+	*******************************************************************************/
 	@Override
 	public void doSelection()
 	{

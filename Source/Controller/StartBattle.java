@@ -15,12 +15,24 @@ public class StartBattle implements Selection
 	private MainCharacter gameCharacter;
 	private UserInterface ui;
 	
+	/*******************************************************************************
+	* Submodule: StartBattle                                                       *
+	* Import:    inGameCharacter (MainCharacter), inUI (UserInterface)             *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for StartBattle.					           *
+	*******************************************************************************/
 	public StartBattle(MainCharacter inGameCharacter, UserInterface inUI)
 	{
 		gameCharacter = inGameCharacter;
 		ui = inUI;
 	}
 	
+	/*******************************************************************************
+	* Submodule: doSelection                                                       *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Overriding Parent Selection as a part of Strategy Pattern.        *
+	*******************************************************************************/
 	@Override
 	public void doSelection()
 	{

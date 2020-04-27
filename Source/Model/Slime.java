@@ -2,6 +2,12 @@ package Model;
 
 public class Slime extends Enemy
 {
+	/*******************************************************************************
+	* Submodule: Slime                                                             *
+	* Import:    None 											   				   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Slime.							           *
+	*******************************************************************************/
 	public Slime()
 	{
 		//Name, MaxHealth, Minimum Damage, Maximum Damage, Minimum Defence, Maximum Defence, Reward
@@ -9,7 +15,11 @@ public class Slime extends Enemy
 		super("Slime", 10, 3, 5, 0, 2, 10);
 	}
 	
-	//Accessors
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Slime classfields.               *
+	*******************************************************************************/
 	public int getDamage()
 	{ 
 		return getRandomValue(minDamage, maxDamage);

@@ -21,6 +21,12 @@ public class MainCharacter
 	private Item mainArmour;
 	private int gold;
 	
+	/*******************************************************************************
+	* Submodule: MainCharacter                                                     *
+	* Import:    None 															   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for MainCharacter.					           *
+	*******************************************************************************/
 	public MainCharacter()
 	{
 		name = "";
@@ -32,7 +38,11 @@ public class MainCharacter
 		gold = 100;
 	}
 	
-	//Mutators
+	/*******************************************************************************
+	*                                MUTATORS                                      *
+	********************************************************************************
+	*              Responsible for setting all MainCharacter classfields.          *
+	*******************************************************************************/
 	public void setName(String inName)
 	{
 		name = inName;
@@ -90,7 +100,11 @@ public class MainCharacter
 		//Notify Observers
 	}
 	
-	//Accessors
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*             Responsible for accessing all MainCharacter classfields.         *
+	*******************************************************************************/
 	public int getMaxHealth()
 	{
 		return maxHealth;

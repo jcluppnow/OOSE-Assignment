@@ -14,7 +14,13 @@ public class UserInterface
 {
 
 	private static Scanner input = new Scanner(System.in);
-		
+	
+	/*******************************************************************************
+	* Submodule: displayMenu                                                       *
+	* Import:    selections (Map<Integer, Selection>) 							   *
+	* Export:    None                                                              *
+	* Assertion: Display the Main Menu.    									       *
+	*******************************************************************************/
 	public void displayMenu(Map<Integer, Selection> selections)
 	{
 		boolean done = false;
@@ -48,6 +54,12 @@ public class UserInterface
 		}
 	}
 	
+	/*******************************************************************************
+	* Submodule: displayShop                                                       *
+	* Import:    shopInventory (ArrayList<String>)                                 *
+	* Export:    choice (Integer)                                                  *
+	* Assertion: Responsible for displaying Shop Inventory and recieving choice.   *
+	*******************************************************************************/
 	public int displayShop(ArrayList<String> shopInventory)
 	{ 
 		boolean exit = true;
@@ -77,6 +89,12 @@ public class UserInterface
 		return choice;
 	}
 	
+	/*******************************************************************************
+	* Submodule: displayCharacterInventory                                         *
+	* Import:    characterInventory (List<Item>)                                   *
+	* Export:    None                                                              *
+	* Assertion: Display all the Items in the Character's Inventory.	           *
+	*******************************************************************************/	
 	public void displayCharacterInventory(List<Item> characterInventory)
 	{
 		int itemNumber = 1;
@@ -86,7 +104,13 @@ public class UserInterface
 			itemNumber++;
 		}
 	}
-		
+	
+	/*******************************************************************************
+	* Submodule: getCharacterName                                                  *
+	* Import:    None                                                              *
+	* Export:    name (String)                                                     *
+	* Assertion: Processes and validates character name. 				           *
+	*******************************************************************************/	
 	public String getCharacterName()
 	{
 		boolean done = false;
@@ -115,11 +139,23 @@ public class UserInterface
 		return name;
 	}
 
+	/*******************************************************************************
+	* Submodule: displayString                                                     *
+	* Import:    inString (String)                                                 *
+	* Export:    None                                                              *
+	* Assertion: Prints the parameter.									           *
+	*******************************************************************************/	
 	public void displayString(String inString)
 	{
 		System.out.println(inString);
 	}
 	
+	/*******************************************************************************
+	* Submodule: getChoice		                                                   *
+	* Import:    message (String)                                                  *
+	* Export:    choice (Integer)                                                  *
+	* Assertion: Processes and Validates Choice, while displaying Parameter.       *
+	*******************************************************************************/	
 	public int getChoice(String message)
 	{
 		boolean done = false;
@@ -149,6 +185,12 @@ public class UserInterface
 		return choice;
 	}
 	
+	/*******************************************************************************
+	* Submodule: validateName                                                      *
+	* Import:    inName (String)                                                   *
+	* Export:    validName (Boolean)                                               *
+	* Assertion: Returns true or false depending on whether the string is valid.   *
+	*******************************************************************************/	
 	private boolean validateName(String inName)
 	{
 		boolean validName = true;

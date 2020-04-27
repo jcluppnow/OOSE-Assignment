@@ -23,6 +23,12 @@ public class MenuController
 	private Selection chooseArmour;
 	private Selection startBattle;
 	
+	/*******************************************************************************
+	* Submodule: run                                                               *
+	* Import:    gameCharacter (MainCharacter), ui (UserInterface)                 *
+	* Export:    None                                                              *
+	* Assertion: Initializes the Strategy Pattern.                                 *
+	*******************************************************************************/
 	public void run(MainCharacter gameCharacter, UserInterface ui)
 	{
 		ArrayList<String> shopInventory = ((new ReadFile().readCSVFile()));	

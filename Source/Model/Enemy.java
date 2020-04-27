@@ -24,6 +24,12 @@ public abstract class Enemy
 	protected int maxDefence;
 	protected int reward;
 
+	/*******************************************************************************
+	* Submodule: Enemy                                                             *
+	* Import:    None				   											   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Enemy.							           *
+	*******************************************************************************/
 	public Enemy()
 	{
 		name = "";
@@ -36,6 +42,14 @@ public abstract class Enemy
 		reward = 0;
 	}
 	
+	/*******************************************************************************
+	* Submodule: Enemy                                                             *
+	* Import:    inName (String), inMaxHealth (Integer), inMinDamage (Integer),    *
+	* 			 inMaxDamage (Integer), inMinDefence (Integer),                    *
+	* 			 inMaxDefence (Integer). inReward (Integer)						   *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for Enemy.						           *
+	*******************************************************************************/
 	public Enemy(String inName, int inMaxHealth, int inMinDamage, int inMaxDamage, int inMinDefence, int inMaxDefence, int inReward)
 	{
 		if ((validateString(inName)) && (validateInteger(inMaxHealth)) && (validateInteger(inMinDamage)) && (validateInteger(inMaxDamage)) && (validateMinDefence(inMinDefence)) && (validateInteger(inMaxDefence)) && (validateInteger(inReward)))
@@ -51,7 +65,11 @@ public abstract class Enemy
 		}
 	}
 	
-	//MUTATORS 
+	/*******************************************************************************
+	*                                MUTATORS                                      *
+	********************************************************************************
+	*                Responsible for setting all Enemy classfields.                *
+	*******************************************************************************/
 	public void setName(String inName) throws EnemyException
 	{
 		if (validateString(inName))
@@ -149,7 +167,11 @@ public abstract class Enemy
 		}
 	}
 	
-	//ACCESSORS
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Enemy classfields.               *
+	*******************************************************************************/
 	public String toString()
 	{
 		return "Name: " + name + " Max Health: " + maxHealth + " Current Health: " + currentHealth + " Min Damage: " + minDamage + " Max Damage: " + maxDamage +  " Min Defence: " + minDefence + " Max Defence: " + maxDefence + " Gold Reward: " + reward + "\n";
@@ -186,12 +208,23 @@ public abstract class Enemy
 		return reward;
 	}
 	
-	//Protected Submodules
+	/*******************************************************************************
+	* Submodule: validateInteger                                                   *
+	* Import:    inInteger (Integer)											   *
+	* Export:    Boolean                                                           *
+	* Assertion: Checks if the Integer is valid. 						           *
+	*******************************************************************************/
 	protected boolean validateInteger(int inInteger)
 	{
 		return (inInteger > 0);
 	}
 	
+	/*******************************************************************************
+	* Submodule: validateString                                                    *
+	* Import:    inString (String)                              				   *
+	* Export:    validString (Boolean)                                             *
+	* Assertion: Returns true or false if the string is empty.			           *
+	*******************************************************************************/
 	protected boolean validateString(String inString)
 	{
 		boolean validString = true;
@@ -204,6 +237,12 @@ public abstract class Enemy
 		return validString;
 	}
 	
+	/*******************************************************************************
+	* Submodule: validateMinDefence                                                *
+	* Import:    inMinDefence (Integer)											   *
+	* Export:    Boolean                                                           *
+	* Assertion: Checks if minDefence is valid.							           *
+	*******************************************************************************/
 	protected boolean validateMinDefence(int inMinDefence)
 	{
 		return (inMinDefence >= 0);

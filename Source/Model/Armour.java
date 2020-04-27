@@ -15,6 +15,12 @@ public class Armour extends Item
 	private String material;
 	private static final String itemType = "Armour";
 	
+	/*******************************************************************************
+	* Submodule: Armour                                                            *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Armour.          *
+	*******************************************************************************/
 	public Armour()
 	{
 		super();
@@ -23,6 +29,13 @@ public class Armour extends Item
 		material = null;
 	}
 	
+	/*******************************************************************************
+	* Submodule: Armour                                                            *
+	* Import:    inName (String), inCost (Integer), inMinDefence (Integer),		   *
+	*			 inMaxDefence (Integer), inMaterial (String)					   *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for Armour.						           *
+	*******************************************************************************/
 	public Armour(String inName, int inCost, int inMinDefence, int inMaxDefence, String inMaterial)
 	{
 		super(inName, inCost);
@@ -34,7 +47,11 @@ public class Armour extends Item
 		}
 	}
 	
-	//ACCESSORS
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Armour classfields.              *
+	*******************************************************************************/
 	public int getMinDefence()
 	{
 		return minDefence;
@@ -60,7 +77,11 @@ public class Armour extends Item
 		return super.toString() + " Minimum Defence: " + minDefence + " Maximum Defence: " + maxDefence + " Material: " + material;
 	}
 	
-	//MUTATORS
+	/*******************************************************************************
+	*                                MUTATORS                                      *
+	********************************************************************************
+	*                Responsible for setting all Armour classfields.               *
+	*******************************************************************************/
 	public void setMinDefence(int inMinDefence) throws ArmourException
 	{
 		if (validateInteger(inMinDefence))

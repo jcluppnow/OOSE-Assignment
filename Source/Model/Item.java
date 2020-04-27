@@ -15,15 +15,30 @@ public abstract class Item
 	protected String itemName;
 	protected int cost;
 	
-	//Accessors	
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Item classfields.                *
+	*******************************************************************************/
+	
+	/*******************************************************************************
+	* Submodule: Item                                                              *
+	* Import:    None															   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Item.							           *
+	*******************************************************************************/
 	public Item()
 	{
 		itemName = null;
 		cost = 0;
 	}
 	
-	public abstract String getItemType();
-	
+	/*******************************************************************************
+	* Submodule: Item                                                              *
+	* Import:    inItemName (String), inCost (Integer)          				   *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for Item.						           *
+	*******************************************************************************/
 	public Item(String inItemName,  int inCost)
 	{
 		if ((validateString(inItemName)) && (validateInteger(inCost)))
@@ -32,6 +47,7 @@ public abstract class Item
 			cost = inCost;
 		}
 	}
+	public abstract String getItemType();
 	
 	public String getItemName()
 	{
@@ -43,6 +59,11 @@ public abstract class Item
 		return cost;
 	}
 	
+	/*******************************************************************************
+	*                                MUTATORS                                      *
+	********************************************************************************
+	*                Responsible for setting all Item classfields.                 *
+	*******************************************************************************/
 	public void setItemName(String inName) throws ItemException
 	{
 		if (validateString(inName))
@@ -67,8 +88,6 @@ public abstract class Item
 		}
 	}
 	
-	
-	//Protected Submodules
 	public String toString()
 	{
 		return ("Item Name: " + itemName + " Cost: " + cost);

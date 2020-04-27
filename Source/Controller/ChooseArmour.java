@@ -9,16 +9,30 @@ package Controller;
 import Model.MainCharacter;
 import View.UserInterface;
 import java.util.*;
+
 public class ChooseArmour implements Selection
 {
 	private MainCharacter gameCharacter;
 	private UserInterface ui;
 	
+	/*******************************************************************************
+	* Submodule: ChooseArmour                                                      *
+	* Import:    inGameCharacter (MainCharacter), inUI (UserInterface)             *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for ChooseArmour.				           *
+	*******************************************************************************/
 	public ChooseArmour(MainCharacter inGameCharacter, UserInterface inUI)
 	{
 		gameCharacter = inGameCharacter;
 		ui = inUI;
 	}
+	
+	/*******************************************************************************
+	* Submodule: doSelection                                                       *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Overriding Parent Selection as part of Strategy Pattern.          *
+	*******************************************************************************/
 	@Override
 	public void doSelection()
 	{

@@ -15,6 +15,12 @@ public class Potion extends Item
 	private char type;
 	private static final String itemType = "Potion";
 	
+	/*******************************************************************************
+	* Submodule: Potion                                                            *
+	* Import:    None                                            				   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Potion.						           *
+	*******************************************************************************/
 	public Potion()
 	{
 		super();
@@ -23,6 +29,13 @@ public class Potion extends Item
 		type = '\u0000';
 	}
 	
+	/*******************************************************************************
+	* Submodule: Potion                                                            *
+	* Import:    inName (String), inCost (Integer), inMinEffect (Integer),         *
+	*			 inMaxEffect (Integer), inType (Character)						   *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for Potion.						           *
+	*******************************************************************************/
 	public Potion(String inName, int inCost, int inMinEffect, int inMaxEffect, char inType)
 	{
 		super(inName, inCost);
@@ -34,7 +47,11 @@ public class Potion extends Item
 		}
 	}
 	
-	//ACCESSORS
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Potion classfields.              *
+	*******************************************************************************/
 	public int getMinEffect()
 	{
 		return minEffect;
@@ -60,7 +77,11 @@ public class Potion extends Item
 		return (super.toString() + " Minimum Effect: " + minEffect + " Maximum Effect: " + maxEffect + " Type:" + type);
 	}
 	
-	//MUTATORS 
+	/*******************************************************************************
+	*                                MUTATORS                                      *
+	********************************************************************************
+	*                Responsible for setting all Potion classfields.               *
+	*******************************************************************************/
 	public void setMinEffect(int inMinEffect) throws PotionException
 	{
 		if (validateInteger(inMinEffect))
@@ -97,7 +118,12 @@ public class Potion extends Item
 		}
 	}
 	
-	//PRIVATE SUBMODULES
+	/*******************************************************************************
+	* Submodule: validateCharacter                                                 *
+	* Import:    inType                                          				   *
+	* Export:    None                                                              *
+	* Assertion: Returns true or false whether the character is empty.             *
+	*******************************************************************************/
 	private boolean validateCharacter(char inType)
 	{
 		boolean validCharacter = true;

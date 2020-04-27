@@ -12,6 +12,12 @@ import java.io.*;
 
 public class ReadFile
 {
+	/*******************************************************************************
+	* Submodule: readCSVFile                                                       *
+	* Import:    None                                                              *
+	* Export:    fileContents (ArrayList<String>)                                  *
+	* Assertion: Reads Items from CSV and adds enchantments to Shop.               *
+	*******************************************************************************/
 	public ArrayList<String> readCSVFile()
 	{
 		String Line;

@@ -9,6 +9,12 @@ package Model;
 
 public class Goblin extends Enemy
 {
+	/*******************************************************************************
+	* Submodule: Goblin                                                            *
+	* Import:    None                                           				   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Goblin.						           *
+	*******************************************************************************/
 	public Goblin()
 	{
 		//Name, MaxHealth, Minimum Damage, Maximum Damage, Minimum Defence, Maximum Defence, Reward
@@ -16,7 +22,11 @@ public class Goblin extends Enemy
 		super("Goblin", 30, 3, 8, 4, 8, 20);
 	}
 	
-	//Accessors
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Goblin classfields.              *
+	*******************************************************************************/
 	public int getDamage()
 	{ 
 		return getRandomValue(minDamage, maxDamage);

@@ -20,6 +20,13 @@ public class Shop implements Selection
 	private MainCharacter gameCharacter;
 	private ItemFactory itemFactory;
 	
+	/*******************************************************************************
+	* Submodule: Shop                                                              *
+	* Import:    inInventory (ArrayList<String>), inUI (UserInterface),            *
+	*            inGameCharacter (MainCharacter)                                   *
+	* Export:    None                                                              *
+	* Assertion: Alternate Constructor for Shop.                                   *
+	*******************************************************************************/
 	public Shop(ArrayList<String> inInventory, UserInterface inUI, MainCharacter inGameCharacter)
 	{
 		ui = inUI;
@@ -28,6 +35,12 @@ public class Shop implements Selection
 		itemFactory = new ItemFactory();
 	}
 	
+	/*******************************************************************************
+	* Submodule: doSelection                                                       *
+	* Import:    None                                                              *
+	* Export:    None                                                              *
+	* Assertion: Overriding Parent Selection as a part of Strategy Pattern.        *
+	*******************************************************************************/
 	@Override
 	public void doSelection()
 	{
@@ -48,6 +61,12 @@ public class Shop implements Selection
 		}
 	}
 	
+	/*******************************************************************************
+	* Submodule: purchaseItem                                                      *
+	* Import:    choice (Integer)                                                  *
+	* Export:    None                                                              *
+	* Assertion: Responsible for purchasing an item.                               *
+	*******************************************************************************/
 	public void purchaseItem(int choice)
 	{
 		String item = Inventory.get(choice);

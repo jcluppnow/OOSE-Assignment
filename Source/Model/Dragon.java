@@ -9,6 +9,12 @@ package Model;
 
 public class Dragon extends Enemy
 {
+	/*******************************************************************************
+	* Submodule: Dragon                                                            *
+	* Import:    None															   *
+	* Export:    None                                                              *
+	* Assertion: Default Constructor for Dragon.						           *
+	*******************************************************************************/
 	public Dragon()
 	{
 		//Name, MaxHealth, Minimum Damage, Maximum Damage, Minimum Defence, Maximum Defence, Reward
@@ -16,7 +22,11 @@ public class Dragon extends Enemy
 		super("Dragon", 100, 15, 30, 15, 20, 100);
 	}
 	
-	//Accessors
+	/*******************************************************************************
+	*                                 ACCESSORS                                    *
+	********************************************************************************
+	*               Responsible for accessing all Dragon classfields.              *
+	*******************************************************************************/
 	public int getDamage()
 	{ 
 		return getRandomValue(minDamage, maxDamage);
