@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Shop.java		                                              *
+* Purpose:          One of the 5 Strategies, responsible for all Shop Activities. *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Controller;
 import View.UserInterface;
 import Controller.ItemFactory;
@@ -48,14 +55,15 @@ public class Shop implements Selection
 		{
 			Item newItem = itemFactory.CreateItem(item);
 			int cost = newItem.getCost();
-			if (cost <= (gameCharacter.getFunds()))
+			int characterFunds = gameCharacter.getFunds();
+			if (cost <= characterFunds)
 			{
 				gameCharacter.addToInventory(newItem);
 				gameCharacter.decreaseGold(cost);
 			}
 			else
 			{
-				System.out.println("Invalid Funds - Need " + (cost - funds) + " more gold.");
+				System.out.println("\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
 			}
 		}
 		catch (CreateItemException cie)

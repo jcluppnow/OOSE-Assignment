@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         .java                               			              *
+* Purpose:          Handles all ItemException functionality.					  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Controller.Exceptions;
 
 public class ItemException extends Exception

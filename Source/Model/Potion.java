@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Potion.java  												  *
+* Purpose:          Handles all Potion Functionality.							  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Model;
 import Controller.Exceptions.PotionException;
 
@@ -6,6 +13,7 @@ public class Potion extends Item
 	private int minEffect;
 	private int maxEffect;
 	private char type;
+	private static final String itemType = "Potion";
 	
 	public Potion()
 	{
@@ -40,6 +48,11 @@ public class Potion extends Item
 	public char getType()
 	{
 		return type;
+	}
+	
+	public String getItemType()
+	{
+		return itemType;
 	}
 	
 	public String toString()

@@ -1,7 +1,16 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Item.java             			                              *
+* Purpose:          Parent class for all Items.									  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Model;
+
+//Import Custom Packages
 import Controller.Exceptions.ItemException;
 
-public class Item
+public abstract class Item
 {
 	protected String itemName;
 	protected int cost;
@@ -12,6 +21,8 @@ public class Item
 		itemName = null;
 		cost = 0;
 	}
+	
+	public abstract String getItemType();
 	
 	public Item(String inItemName,  int inCost)
 	{

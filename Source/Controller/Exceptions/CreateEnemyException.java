@@ -1,20 +1,20 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
-* Filename:         WeaponException.java                                          *
-* Purpose:          Handles all WeaponException functionality.					  *                                                      *
+* Filename:         CreateEnemyException.java                                     *
+* Purpose:          Handles all CreateEnemyException functionality.				  *                                                      *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller.Exceptions;
 
-public class WeaponException extends Exception
+public class CreateEnemyException extends Exception
 {
-	public WeaponException(String message, Throwable cause)
+	public CreateEnemyException(String message, Throwable cause)
 	{
 		super(message, cause);
 	}
 	
-	public WeaponException(String message)
+	public CreateEnemyException(String message)
 	{
 		super(message);
 	}

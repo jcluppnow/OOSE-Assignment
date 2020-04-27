@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         MenuController.java                                           *
+* Purpose:          Responsible for the adding Strategies and handling Menu.	  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Controller;
 
 import View.UserInterface;

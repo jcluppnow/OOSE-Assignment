@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Weapon.java                                		              *
+* Purpose:          Handles all characteristics of Weapon Class.				  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Model;
 import Controller.Exceptions.WeaponException;
 
@@ -7,6 +14,7 @@ public class Weapon extends Item
 	private int maxDamage;
 	private String damageType;
 	private String weaponType;
+	private static final String itemType = "Weapon";
 	
 	public Weapon()
 	{
@@ -47,6 +55,11 @@ public class Weapon extends Item
 	public String getWeaponType()
 	{
 		return weaponType;
+	}
+	
+	public String getItemType()
+	{
+		return itemType;
 	}
 	
 	public String toString()

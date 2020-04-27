@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         MainCharacter.java                                            *
+* Purpose:          Handles all MainCharacter functionality.					  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Model;
 import View.UserInterface;
 import Model.Item;
@@ -44,9 +51,6 @@ public class MainCharacter
 	public void addToInventory(Item inItem)
 	{
 		inventory.add(inItem);
-//DEBUG CODE
-System.out.println("Checking if the .add method works in MainCharacter.");
-System.out.println("Size of Inventory in Main Character: " + inventory.size()); 
 	}
 	
 	public void removeFromInventory(Item inItem)
@@ -54,12 +58,12 @@ System.out.println("Size of Inventory in Main Character: " + inventory.size());
 		//To be added.
 	}
 	
-	public void setWeapon(Item inItem)
+	public void setMainWeapon(Item inItem)
 	{
 		mainWeapon = inItem;
 	}
 	
-	public void setArmour(Item inItem)
+	public void setMainArmour(Item inItem)
 	{
 		mainArmour = inItem;
 	}
@@ -112,6 +116,11 @@ System.out.println("Size of Inventory in Main Character: " + inventory.size());
 		return name;
 	}
 	
+	public Item getItemFromInventory(int index)
+	{
+		return inventory.get(index);
+	}
+	
 	public Item getWeapon()
 	{
 		return mainWeapon;
@@ -127,6 +136,8 @@ System.out.println("Size of Inventory in Main Character: " + inventory.size());
 		UserInterface ui = new UserInterface();
 		ui.displayCharacterInventory(inventory);
 	}
+	
+
 }
 	
 	

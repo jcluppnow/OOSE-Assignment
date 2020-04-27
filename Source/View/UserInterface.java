@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         UserInterface.java                                            *
+* Purpose:          Handles all UserInterface functionality.					  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package View;
 import Controller.*;
 import Model.Item;
@@ -72,9 +79,6 @@ public class UserInterface
 	
 	public void displayCharacterInventory(List<Item> characterInventory)
 	{
-//DEBUG CODE
-System.out.println("Reached Display Character Inventory");
-System.out.println("Character Inventory Size: " + characterInventory.size());
 		int itemNumber = 1;
 		for (Item item : characterInventory)
 		{
@@ -111,6 +115,40 @@ System.out.println("Character Inventory Size: " + characterInventory.size());
 		return name;
 	}
 
+	public void displayString(String inString)
+	{
+		System.out.println(inString);
+	}
+	
+	public int getChoice(String message)
+	{
+		boolean done = false;
+		int choice = 0;
+		
+		while (!done)
+		{
+			try
+			{
+				System.out.println(message);
+				choice = Integer.parseInt(input.nextLine());
+				
+				if (choice >= 0)
+				{
+					done = true;
+				}
+				else
+				{
+					System.out.println("Enter a positive Integer.");
+				}
+			}
+			catch (NumberFormatException nfe)
+			{
+				System.out.println("Enter an Integer.");
+			}
+		}
+		return choice;
+	}
+	
 	private boolean validateName(String inName)
 	{
 		boolean validName = true;

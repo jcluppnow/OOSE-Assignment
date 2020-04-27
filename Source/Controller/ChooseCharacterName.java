@@ -1,3 +1,12 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         ChooseCharacterName.java                                      *
+* Purpose:          One of the 5 Strategies, responsible for setting character    *
+*                   name. 														  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
+
 package Controller;
 import Model.MainCharacter;
 import View.UserInterface;

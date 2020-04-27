@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         ReadFile.java                                                 *
+* Purpose:          Handles all File Reading.									  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package FileIO;
 import Controller.Exceptions.CreateItemException;
 import java.util.*;

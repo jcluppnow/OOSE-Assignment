@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         CreateItemException.java                                      *
+* Purpose:          Handles all CreateItemException functionality.				  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Controller.Exceptions;
 
 public class CreateItemException extends Exception

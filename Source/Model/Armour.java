@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Armour.java                                          		  *
+* Purpose:          Handles all characteristics of Armour Class.				  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:    27/04/2020                                                    *
+**********************************************************************************/
 package Model;
 import Controller.Exceptions.ArmourException;
 
@@ -6,6 +13,7 @@ public class Armour extends Item
 	private int minDefence;
 	private int maxDefence;
 	private String material;
+	private static final String itemType = "Armour";
 	
 	public Armour()
 	{
@@ -41,6 +49,11 @@ public class Armour extends Item
 	{
 		return material;
 	}
+
+	public String getItemType()
+	{
+		return itemType;
+	}	
 	
 	public String toString()
 	{

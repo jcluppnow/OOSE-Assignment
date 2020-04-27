@@ -1,7 +1,20 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         ItemFactory.java                                              *
+* Purpose:          Responsible for all Item Creation via Factory Pattern. 		  *                                                      *
+* Unit:             OOSE                                                          *
+* Last Modified:	27/04/2020                                                    *
+**********************************************************************************/
 package Controller;
 
-import Model.*;
+//Import Custom Packages
+import Model.Item;
+import Model.Weapon;
+import Model.Potion;
+import Model.Armour;
 import Controller.Exceptions.CreateItemException;
+
+//Import Java Packages
 import java.util.*;
 
 public class ItemFactory
