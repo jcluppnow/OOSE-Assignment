@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         CreateItemException.java                                      *
-* Purpose:          Handles all CreateItemException functionality.				  *                                                      *
+* Purpose:          Handles all CreateItemException functionality.				  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

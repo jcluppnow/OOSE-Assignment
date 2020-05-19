@@ -1,12 +1,16 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         ReadFile.java                                                 *
-* Purpose:          Handles all File Reading.									  *                                                      *
+* Purpose:          Handles all File Reading.									  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package FileIO;
+
+//Import Custom Packages
 import Controller.Exceptions.CreateItemException;
+
+//Import Java Packages
 import java.util.*;
 import java.io.*;
 
@@ -33,10 +37,10 @@ public class ReadFile
 				line = bReader.readLine();
 			}
 			bReader.close();
-			fileContents.add("Enchantment: Damage + 2  - 5  - Add 2 to Attack Damage");
-			fileContents.add("Enchantment: Damage + 5  - 10 - Add 5 to Attack Damage");
-			fileContents.add("Enchantment: Damage + 2  - 20 - Adds between 5 & 10 to Attack Damage.");
-			fileContents.add("Enchantment: Damage + 2  - 10 - Amplifies attack damage by 10%.\n ");
+			fileContents.add("Enchantment, Damage + 2, Cost: 5, Add 2 to Attack Damage");
+			fileContents.add("Enchantment, Damage + 5, Cost: 10, Add 10 to Attack Damage");
+			fileContents.add("Enchantment, Fire Damage, Cost: 20, Adds between 5 and 10 to Attack Damage");
+			fileContents.add("Enchantment, Power-Up, Cost: 10, Multiples Attack Damage by 1.1.");			
 		}
 		catch (IOException ioe)
 		{

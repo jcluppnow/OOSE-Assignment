@@ -1,11 +1,13 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Potion.java  												  *
-* Purpose:          Handles all Potion Functionality.							  *                                                      *
+* Purpose:          Handles all Potion Functionality.							  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Model;
+
+//Import Custom Packages
 import Controller.Exceptions.PotionException;
 
 public class Potion extends Item
@@ -36,7 +38,7 @@ public class Potion extends Item
 	* Export:    None                                                              *
 	* Assertion: Alternate Constructor for Potion.						           *
 	*******************************************************************************/
-	public Potion(String inName, int inCost, int inMinEffect, int inMaxEffect, char inType)
+	public Potion(String inName, int inMinEffect, int inMaxEffect, int inCost, char inType)
 	{
 		super(inName, inCost);
 		if ((validateInteger(inMinEffect)) && (validateInteger(inMaxEffect)) && (validateCharacter(inType)))

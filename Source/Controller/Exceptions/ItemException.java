@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
-* Filename:         .java                               			              *
-* Purpose:          Handles all ItemException functionality.					  *                                                      *
+* Filename:         ItemException.java                    			              *
+* Purpose:          Handles all ItemException functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         ArmourException.java                                          *
-* Purpose:          Handles all ArmourException functionality.					  *                                                      *
+* Purpose:          Handles all ArmourException functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

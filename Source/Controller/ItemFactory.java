@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         ItemFactory.java                                              *
-* Purpose:          Responsible for all Item Creation via Factory Pattern. 		  *                                                      *
+* Purpose:          Responsible for all Item Creation via Factory Pattern. 		  *
 * Unit:             OOSE                                                          *
 * Last Modified:	27/04/2020                                                    *
 **********************************************************************************/
@@ -46,8 +46,7 @@ public class ItemFactory
 					minDamage = Integer.parseInt((parts[2]).trim());
 					maxDamage = Integer.parseInt((parts[3]).trim());
 					damageType = parts[5].trim();
-					weaponType = parts[6].trim();
-					
+					weaponType = parts[6].trim();	
 					newItem = new Weapon(name, cost, minDamage, maxDamage, damageType, weaponType);				
 				}
 				else if (itemType == 'A')
@@ -90,7 +89,7 @@ public class ItemFactory
 		}
 		catch (NullPointerException npe)
 		{
-			
+			throw new CreateItemException("Invalid Value NPE. - CreateItem. ");
 		}
 		return newItem;
 	}

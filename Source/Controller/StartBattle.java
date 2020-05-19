@@ -2,13 +2,17 @@
 * Author:           Jason Luppnow                                                 *
 * Filename:         StartBattle.java                                              *
 * Purpose:          One of the 5 Strategies, responsible for All Battle 		  *
-* 					Activities.													  *                                                      *
+* 					Activities.													  *  
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller;
+
+//Import Custom Packages
 import Model.MainCharacter;
 import View.UserInterface;
+
+//Import Java Packages
 import java.util.*;
 public class StartBattle implements Selection
 {

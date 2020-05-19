@@ -1,12 +1,17 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Weapon.java                                		              *
-* Purpose:          Handles all characteristics of Weapon Class.				  *                                                      *
+* Purpose:          Handles all characteristics of Weapon Class.				  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Model;
+
+//Import Custom Packages
 import Controller.Exceptions.WeaponException;
+
+//Import Java Packages
+import java.lang.Math;
 
 public class Weapon extends Item
 {
@@ -22,21 +27,27 @@ public class Weapon extends Item
 		minDamage = 0;
 		maxDamage = 0;
 		damageType = null;
-		weaponType = null;
+		weaponType = "";
 	}
 
-	public Weapon(String inItemName, int inCost, int inMinDamage, int inMaxDamage, String inDamageType, String inWeaponType)
+	public Weapon(String inItemName, int inMinDamage, int inMaxDamage, int inCost, String inDamageType, String inWeaponType)
 	{
 		super(inItemName, inCost);
-		if ((validateInteger(inMinDamage)) && (validateInteger(inMaxDamage)) && (validateString(inDamageType)) && (validateString(inWeaponType)))
+		if ((validateInteger(inMinDamage)) && (validateInteger(inMaxDamage)) && (validateString(inDamageType)) && (validateWeaponType(inWeaponType)))
 		{
-			minDamage = inMaxDamage;
+			minDamage = inMinDamage;
 			maxDamage = inMaxDamage;
 			damageType = inDamageType;
 			weaponType = inWeaponType;
 		}
 	}
+	
 	//Accessors
+	public String getWeaponType()
+	{
+		return weaponType;
+	}
+	
 	public int getMinDamage()
 	{
 		return minDamage;
@@ -47,14 +58,14 @@ public class Weapon extends Item
 		return maxDamage;
 	}
 	
+	public int calcDamage()
+	{
+		return getRandomValue(minDamage, maxDamage);
+	}
+	
 	public String getDamageType()
 	{
 		return damageType;
-	}
-	
-	public String getWeaponType()
-	{
-		return weaponType;
 	}
 	
 	public String getItemType()
@@ -64,7 +75,7 @@ public class Weapon extends Item
 	
 	public String toString()
 	{
-		return (super.toString() + " Minimum Damage: " + minDamage + " Maxiumum Damage: " + maxDamage + " Damage Type: " + damageType + " Weapon Type: " + weaponType);
+		return (super.toString() + ", Minimum Damage: " + minDamage + ", Maxiumum Damage: " + maxDamage + ", Damage Type: " + damageType + ", Weapon Type: " + weaponType);
 	}
 	
 	public void setMinDamage(int inMinDamage) throws WeaponException
@@ -105,7 +116,7 @@ public class Weapon extends Item
 	
 	public void setWeaponType(String inWeaponType) throws WeaponException
 	{
-		if (validateString(inWeaponType))
+		if (validateWeaponType(inWeaponType))
 		{
 			weaponType = inWeaponType;
 		}
@@ -114,5 +125,26 @@ public class Weapon extends Item
 			throw new WeaponException("Invalid Weapon Type - Weapon.");
 		}
 	}
-}
+	
+	private boolean validateWeaponType(String inWeaponType)
+	{
+		boolean validWeaponType = false;
+		String emptyString = "";
 		
+		if ((inWeaponType.equals("Sword") || inWeaponType.equals("Axe") || inWeaponType.equals("Staff")) && (!(inWeaponType.equals(emptyString))))
+		{
+			validWeaponType = true;
+		}
+		return validWeaponType;
+
+	}
+	
+	protected int getRandomValue(int inMinimum, int inMaximum)
+	{
+		int range = inMaximum - inMinimum + 1;
+		int value = (int) (Math.random() * range) + inMinimum;
+//System.out.println("Get Random Damage Debug: Minimum Damage: " + inMinimum + " Maxiumum Damage: " + inMaximum + "\nCalculate Value: " + value);
+		return value;
+	}
+}
+	

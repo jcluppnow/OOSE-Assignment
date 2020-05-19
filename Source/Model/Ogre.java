@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
-* Filename:         Ogre.java                                       		       *
-* Purpose:          Handles Characteristics for Ogre Class.						  *                                                      *
+* Filename:         Ogre.java                                       		      *
+* Purpose:          Handles Characteristics for Ogre Class.						  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

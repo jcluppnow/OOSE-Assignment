@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         CreateEnemyException.java                                     *
-* Purpose:          Handles all CreateEnemyException functionality.				  *                                                      *
+* Purpose:          Handles all CreateEnemyException functionality.				  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

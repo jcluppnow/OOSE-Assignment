@@ -47,6 +47,7 @@ public abstract class Item
 			cost = inCost;
 		}
 	}
+	
 	public abstract String getItemType();
 	
 	public String getItemName()
@@ -90,7 +91,7 @@ public abstract class Item
 	
 	public String toString()
 	{
-		return ("Item Name: " + itemName + " Cost: " + cost);
+		return ("Item Name: " + itemName + ", Cost: " + cost);
 	}
 	
 	protected boolean validateString(String inName)

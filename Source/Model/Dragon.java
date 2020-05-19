@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Dragon.java                              		              *
-* Purpose:          Handles all Dragon Characteristics.							  *                                                      *
+* Purpose:          Handles all Dragon Characteristics.							  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

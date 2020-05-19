@@ -1,19 +1,29 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         UserInterface.java                                            *
-* Purpose:          Handles all UserInterface functionality.					  *                                                      *
+* Purpose:          Handles all UserInterface functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package View;
+
+//Import Custom Packages
 import Controller.*;
 import Model.Item;
+import Model.MainCharacter;
+
+//Import Java Packages
 import java.util.*;
 
-public class UserInterface
+public class UserInterface implements IObserver
 {
-
+	private MainCharacter gameCharacter;
 	private static Scanner input = new Scanner(System.in);
+	
+	public UserInterface(MainCharacter inGameCharacter)
+	{
+		gameCharacter = inGameCharacter;
+	}
 	
 	/*******************************************************************************
 	* Submodule: displayMenu                                                       *
@@ -77,7 +87,7 @@ public class UserInterface
 					itemNumber++;
 				}
 
-				System.out.println("What would you like to buy - 0 to exit. \nINPUT: ");
+				System.out.println("\nWhat would you like to buy - 0 to exit. \nINPUT: ");
 				choice = Integer.parseInt(input.nextLine());
 			}
 			catch (NumberFormatException nfe)
@@ -183,6 +193,17 @@ public class UserInterface
 			}
 		}
 		return choice;
+	}
+	
+	public void update()
+	{
+		displayUserStatistics();
+	}
+	
+	public void displayUserStatistics()
+	{
+
+		System.out.println(gameCharacter.toString());
 	}
 	
 	/*******************************************************************************

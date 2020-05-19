@@ -1,13 +1,17 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         ChooseArmour.java                                             *
-* Purpose:          One of the 5 Strategies responsible for equipping Armour.	  *                                                      *
+* Purpose:          One of the 5 Strategies responsible for equipping Armour.	  *                       
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller;
+
+//Import Custom Packages
 import Model.MainCharacter;
 import View.UserInterface;
+
+//Import Java Packages
 import java.util.*;
 
 public class ChooseArmour implements Selection

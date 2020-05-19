@@ -2,15 +2,17 @@
 * Author:           Jason Luppnow                                                 *
 * Filename:         ChooseCharacterName.java                                      *
 * Purpose:          One of the 5 Strategies, responsible for setting character    *
-*                   name. 														  *                                                      *
+*                   name. 														  *          
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
-
 package Controller;
+
+//Import Custom Packages
 import Model.MainCharacter;
 import View.UserInterface;
 
+//Import Java Packages
 import java.util.*;
 public class ChooseCharacterName implements Selection
 {
@@ -32,7 +34,7 @@ public class ChooseCharacterName implements Selection
 	@Override
 	public void doSelection()
 	{
-		UserInterface ui = new UserInterface();
+		UserInterface ui = new UserInterface(gameCharacter);
 		gameCharacter.setName(ui.getCharacterName());
 	}
 }

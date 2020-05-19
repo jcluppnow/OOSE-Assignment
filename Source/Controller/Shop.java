@@ -1,16 +1,20 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Shop.java		                                              *
-* Purpose:          One of the 5 Strategies, responsible for all Shop Activities. *                                                      *
+* Purpose:          One of the 5 Strategies, responsible for all Shop Activities. *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller;
+
+//Import Custom Packages
 import View.UserInterface;
 import Controller.ItemFactory;
+import Controller.Exceptions.CreateItemException;
 import Model.MainCharacter;
 import Model.Item;
-import Controller.Exceptions.CreateItemException;
+
+//Import Java Packages
 import java.util.*;
 
 public class Shop implements Selection
@@ -69,28 +73,62 @@ public class Shop implements Selection
 	*******************************************************************************/
 	public void purchaseItem(int choice)
 	{
+		Item newItem = null;
 		String item = Inventory.get(choice);
+		String[] parts = item.split(",");
+		int characterFunds = gameCharacter.getFunds();
+		
 		try
 		{
-			Item newItem = itemFactory.CreateItem(item);
-			int cost = newItem.getCost();
-			int characterFunds = gameCharacter.getFunds();
-			if (cost <= characterFunds)
+			//Split item
+			//Check if its an enchantment
+			//If it is wrap the main weapon with it
+			//Decrease gold
+			if (parts[0].equals("Enchantment"))
 			{
-				gameCharacter.addToInventory(newItem);
-				gameCharacter.decreaseGold(cost);
+				String enchantment = item;							//Converted to enchantment so I don't confuse myself later.
+				//Get the item price.
+				String costString = parts[2].trim();
+				try
+				{
+					//Splits 'Cost: price' recieves the price and trims any whitespace just in case.
+					int cost = Integer.parseInt(((costString.split(" "))[1]).trim());		
+					if (cost <= characterFunds)
+					{
+						EnchantmentFactory ef = new EnchantmentFactory();
+						ef.CreateEnchantment(enchantment, gameCharacter); 	
+						gameCharacter.decreaseGold(cost);
+					}
+					else
+					{
+						System.out.println("\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
+					}
+						
+				}
+				catch (NumberFormatException nfe)
+				{
+					//NFE is thrown by parseInt
+					System.out.println("Invalid Format for Cost - Shop - Enchantment.\n");
+				}					
 			}
 			else
 			{
-				System.out.println("\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
+				newItem = itemFactory.CreateItem(item);
+				int cost = newItem.getCost();
+				if (cost <= characterFunds)
+				{
+					gameCharacter.addToInventory(newItem);
+					gameCharacter.decreaseGold(cost);
+				}
+				else
+				{
+					System.out.println("\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
+				}
 			}
 		}
 		catch (CreateItemException cie)
 		{
 			System.out.println("Failed to create Item.");
 		}
-	}
-	
-	
-	
+	}	
 }

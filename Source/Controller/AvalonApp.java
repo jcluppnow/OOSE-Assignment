@@ -1,25 +1,28 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         AvalonApp.java                                                *
-* Purpose:          Main Run file for Game.										  *                                                      *
+* Purpose:          Main Run file for Game.										  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller;
 
+//Import Custom Packages
 import Controller.*;
 import View.UserInterface;
 import FileIO.ReadFile;
 import Model.MainCharacter;
-import java.util.*;
 
+//Import Custom Packages
+import java.util.*;
 
 public class AvalonApp
 {
     public static void main(String[] args)
     {
-		UserInterface ui = new UserInterface();
 		MainCharacter gameCharacter = new MainCharacter();
+		UserInterface ui = new UserInterface(gameCharacter);				
+		gameCharacter.add(ui);												//Add UserInterface as an observer to MainCharacter
 		MenuController mc = new MenuController();
 		
 		try

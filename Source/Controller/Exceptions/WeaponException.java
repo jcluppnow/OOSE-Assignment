@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         WeaponException.java                                          *
-* Purpose:          Handles all WeaponException functionality.					  *                                                      *
+* Purpose:          Handles all WeaponException functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

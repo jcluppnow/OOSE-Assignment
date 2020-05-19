@@ -1,18 +1,20 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         MenuController.java                                           *
-* Purpose:          Responsible for the adding Strategies and handling Menu.	  *                                                      *
+* Purpose:          Responsible for the adding Strategies and handling Menu.	  * 
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Controller;
 
+//Import Custom Packages
 import View.UserInterface;
 import Controller.Selection;
 import FileIO.ReadFile;
 import Model.MainCharacter;
-import java.util.*;
 
+//Import Java Packages
+import java.util.*;
 
 public class MenuController
 {

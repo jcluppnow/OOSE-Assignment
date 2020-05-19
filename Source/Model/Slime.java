@@ -1,3 +1,10 @@
+/**********************************************************************************
+* Author:           Jason Luppnow                                                 *
+* Filename:         Slime.java                                		              *
+* Purpose:          Handles all characteristics of Slime Class.		    		  *
+* Unit:             OOSE                                                          *
+* Last Modified:    18/05/2020                                                    *
+**********************************************************************************/
 package Model;
 
 public class Slime extends Enemy

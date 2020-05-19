@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Enemy.java                                      		      *
-* Purpose:          Parent Class for all Enemies.								  *                                                      *
+* Purpose:          Parent Class for all Enemies.								  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

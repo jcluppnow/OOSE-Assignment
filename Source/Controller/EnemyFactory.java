@@ -1,11 +1,10 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         EnemyFactory.java                                             *
-* Purpose:          Responsible for all Enemy Creation via the Factory Pattern.	  *                                                      *
+* Purpose:          Responsible for all Enemy Creation via the Factory Pattern.	  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
-
 package Controller;
 
 //Import Custom Packages

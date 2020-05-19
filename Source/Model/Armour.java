@@ -1,11 +1,13 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Armour.java                                          		  *
-* Purpose:          Handles all characteristics of Armour Class.				  *                                                      *
+* Purpose:          Handles all characteristics of Armour Class.				  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
 package Model;
+
+//Import Custom Packages
 import Controller.Exceptions.ArmourException;
 
 public class Armour extends Item
@@ -19,7 +21,7 @@ public class Armour extends Item
 	* Submodule: Armour                                                            *
 	* Import:    None                                                              *
 	* Export:    None                                                              *
-	* Assertion: Default Constructor for Armour.          *
+	* Assertion: Default Constructor for Armour.        						   *
 	*******************************************************************************/
 	public Armour()
 	{
@@ -36,7 +38,7 @@ public class Armour extends Item
 	* Export:    None                                                              *
 	* Assertion: Alternate Constructor for Armour.						           *
 	*******************************************************************************/
-	public Armour(String inName, int inCost, int inMinDefence, int inMaxDefence, String inMaterial)
+	public Armour(String inName, int inMinDefence, int inMaxDefence, int inCost, String inMaterial)
 	{
 		super(inName, inCost);
 		if ((validateInteger(inMinDefence)) && (validateInteger(inMaxDefence)) && (validateString(inMaterial)))
@@ -60,6 +62,11 @@ public class Armour extends Item
 	public int getMaxDefence()
 	{
 		return maxDefence;
+	}
+	
+	public int calcDefence()
+	{
+		return getRandomValue(minDefence, maxDefence);
 	}
 	
 	public String getMaterial()
@@ -116,5 +123,12 @@ public class Armour extends Item
 		{
 			throw new ArmourException("Invalid Material - Armour.");
 		}
+	}
+	
+	private int getRandomValue(int inMinimum, int inMaximum)
+	{
+		int range = inMaximum - inMinimum + 1;
+		int value = (int) (Math.random() * range) + inMinimum;
+		return value;
 	}
 }		

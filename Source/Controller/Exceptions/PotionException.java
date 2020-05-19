@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         PotionException.java                                          *
-* Purpose:          Handles all PotionException functionality.					  *                                                      *
+* Purpose:          Handles all PotionException functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

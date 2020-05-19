@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Goblin.java                                                   *
-* Purpose:          Handles Characteristics for Goblin Class.					  *                                                      *
+* Purpose:          Handles Characteristics for Goblin Class.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
