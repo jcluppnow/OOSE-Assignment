@@ -8,6 +8,7 @@
 package Controller;
 
 //Import Custom Packages
+import Controller.Exceptions.MainCharacterException;
 import Model.MainCharacter;
 import View.UserInterface;
 
@@ -43,18 +44,19 @@ public class ChooseArmour implements Selection
 		boolean done = false;
 		int choice;
 		gameCharacter.displayInventory();
+		choice = ui.getChoice("Enter a number for which Armour to set.\n");
 		while (!done)
 		{
-			choice = ui.getChoice("Enter a number for which Armour to set.\n");
-			if (gameCharacter.getItemFromInventory(choice).getItemType().equals("Armour"))
+			try
 			{
 				gameCharacter.setMainArmour(gameCharacter.getItemFromInventory(choice));
 			}
-			else
+			catch (MainCharacterException mce)
 			{
-				System.out.println("Choice is not Armour.");
+				System.out.println("Re-enter Choice, that was an invalid Armour. ");
+				choice = ui.getChoice("Press 0 to exit.");
 			}
-			choice = ui.getChoice("Press 0 to exit.");
+			
 			if (choice == 0)
 			{
 				done = true;

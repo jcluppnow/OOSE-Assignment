@@ -8,8 +8,9 @@
 package Model;
 
 //Import Custom Packages
-import View.UserInterface;
+import Controller.Exceptions.MainCharacterException;
 import Controller.IObservable;
+import View.UserInterface;
 import View.IObserver;
 import Model.Item;
 
@@ -25,7 +26,7 @@ public class MainCharacter implements IObservable
 	private int currentHealth;
 	private List<Item> inventory;
 	private Weapon mainWeapon;
-	private Item mainArmour;
+	private Armour mainArmour;
 	private int gold;
 
 	
@@ -42,7 +43,7 @@ public class MainCharacter implements IObservable
 		maxHealth = 30;
 		currentHealth = maxHealth;
 		Weapon newWeapon = new Weapon("Short Sword", 5, 9, 10, "slashing", "Sword");
-		Item newArmour = new Armour("Leather Armour", 5, 15, 10, "Leather");
+		Armour newArmour = new Armour("Leather Armour", 5, 15, 10, "Leather");
 		mainWeapon = newWeapon;
 		mainArmour = newArmour;
 		inventory = new ArrayList<Item>();
@@ -64,6 +65,7 @@ public class MainCharacter implements IObservable
 	public void setName(String inName)
 	{
 		name = inName;
+		notifyObservers();
 	}
 	
 	public void increaseHealth(int amount)
@@ -73,7 +75,7 @@ public class MainCharacter implements IObservable
 		{
 			currentHealth = maxHealth;
 		}
-		notify();
+		notifyObservers();
 	}
 	
 	public void addToInventory(Item inItem)
@@ -86,29 +88,31 @@ public class MainCharacter implements IObservable
 		//To be added.
 	}
 	
-	public void setMainWeapon(Item inItem)
+	public void setMainWeapon(Item inItem) throws MainCharacterException
 	{
 		//Justifiable Down Casting, guarantees that the item is of type Weapon.
 		if (inItem.getItemType().equals("Weapon"))
 		{
 			mainWeapon =  (Weapon) inItem;
+			notifyObservers();
 		}
 		else
 		{
-			//Throw Main Character Exception. 
+			throw new MainCharacterException("Invalid Type: " + inItem.getItemType() + "\nMust be of type Weapon."); 
 		}
 	}
 	
-	public void setMainArmour(Item inItem)
+	public void setMainArmour(Item inItem) throws MainCharacterException
 	{
-		//Justifiable Down Casting, guarantees that the item is of type Armour.
+		//Justifiable Down Casting, guarantees that the item is of type Weapon.
 		if (inItem.getItemType().equals("Armour"))
 		{
-			mainArmour = (Armour) inItem;
+			mainArmour =  (Armour) inItem;
+			notifyObservers();
 		}
 		else
 		{
-			//Throw Main Character Exception. 
+			throw new MainCharacterException("Invalid Type: " + inItem.getItemType() + "\nMust be of type Armour."); 
 		}
 	}
 	
