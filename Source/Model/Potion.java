@@ -76,7 +76,7 @@ public class Potion extends Item
 	
 	public String toString()
 	{
-		return (super.toString() + " Minimum Effect: " + minEffect + " Maximum Effect: " + maxEffect + " Type:" + type);
+		return (super.toString() + ", Minimum Effect: " + minEffect + ", Maximum Effect: " + maxEffect + ", Type: " + type);
 	}
 	
 	/*******************************************************************************

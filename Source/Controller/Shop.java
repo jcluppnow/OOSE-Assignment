@@ -60,7 +60,14 @@ public class Shop implements Selection
 			}
 			else
 			{
-				purchaseItem(choice);
+				try
+				{
+					purchaseItem(choice);
+				}
+				catch (IndexOutOfBoundsException invalidChoice)
+				{
+					System.out.println("\n\u001b[31mInvalid Choice - Shop. \n\u001b[0m");
+				}
 			}
 		}
 	}
@@ -74,7 +81,7 @@ public class Shop implements Selection
 	public void purchaseItem(int choice)
 	{
 		Item newItem = null;
-		String item = Inventory.get(choice);
+		String item = Inventory.get(choice-1);						//Need to subtract 1 to conform with 0 based indexing.
 		String[] parts = item.split(",");
 		int characterFunds = gameCharacter.getFunds();
 		
@@ -101,7 +108,7 @@ public class Shop implements Selection
 					}
 					else
 					{
-						System.out.println("\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
+						System.out.println("\n\u001B[31m Invalid Funds - Need " + (cost - characterFunds) + " more gold. \u001B[0m");
 					}
 						
 				}

@@ -39,7 +39,16 @@ public class UserInterface implements IObserver
 			try
 			{
 				int selection;
-				System.out.println("(1) Go To Shop \n(2) Choose Character Name \n(3) Choose Weapon \n(4) Choose Armour \n(5) Start Battle \n(6) Exit\n");
+				System.out.println("\n+================+");
+				System.out.println("|  Menu Options  |");
+				System.out.println("+================+============+");
+				System.out.println("|  (1) Go To Shop             |");
+				System.out.println("|  (2) Choose Character Name  |");
+				System.out.println("|  (3) Choose Weapon          |");
+				System.out.println("|  (4) Choose Armour          |");
+				System.out.println("|  (5) Start Battle           |");
+				System.out.println("|  (6) Exit                   |");
+				System.out.println("+=============================+");
 				System.out.print("INPUT: ");
 				selection = Integer.parseInt(input.nextLine());
 				if (selection == 6)
@@ -79,15 +88,17 @@ public class UserInterface implements IObserver
 			try
 			{
 
-			int itemNumber = 1;
-			System.out.println("Lauren's Humble Wares");
+				int itemNumber = 1;
+				System.out.println("\nLauren's Humble Wares");
+				System.out.println("\nType, Name, Min Damage, Max Damage, Cost, Damage Type, Weapon Type");
 				for (String item : shopInventory)
 				{
 					System.out.print("\n\t(" + itemNumber + ")  " + item);
 					itemNumber++;
 				}
 
-				System.out.println("\nWhat would you like to buy - 0 to exit. \nINPUT: ");
+				System.out.println("\n\nWhat would you like to buy - 0 to exit.");
+				System.out.print("INPUT: ");
 				choice = Integer.parseInt(input.nextLine());
 			}
 			catch (NumberFormatException nfe)
@@ -107,6 +118,7 @@ public class UserInterface implements IObserver
 	*******************************************************************************/	
 	public void displayCharacterInventory(List<Item> characterInventory)
 	{
+		System.out.println("\nInventory:\n");
 		int itemNumber = 1;
 		for (Item item : characterInventory)
 		{
@@ -130,7 +142,7 @@ public class UserInterface implements IObserver
 		{
 			try
 			{
-				System.out.println("Enter your Character's Name! \nINPUT: ");
+				System.out.println("\nEnter your Character's Name! \nINPUT: ");
 				name = input.nextLine();
 				if (validateName(name))
 				{
@@ -202,8 +214,9 @@ public class UserInterface implements IObserver
 	
 	public void displayUserStatistics()
 	{
-
+		System.out.println("\nCharacter Statistics: ");
 		System.out.println(gameCharacter.toString());
+		displayCharacterInventory(gameCharacter.getInventory());
 	}
 	
 	/*******************************************************************************

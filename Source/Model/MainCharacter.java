@@ -13,6 +13,8 @@ import Controller.IObservable;
 import View.UserInterface;
 import View.IObserver;
 import Model.Item;
+import Model.Armour;
+import Model.Weapon;
 
 //Import Java Packages
 import java.util.*;

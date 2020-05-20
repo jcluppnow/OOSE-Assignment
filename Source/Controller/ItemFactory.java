@@ -47,7 +47,7 @@ public class ItemFactory
 					maxDamage = Integer.parseInt((parts[3]).trim());
 					damageType = parts[5].trim();
 					weaponType = parts[6].trim();	
-					newItem = new Weapon(name, cost, minDamage, maxDamage, damageType, weaponType);				
+					newItem = new Weapon(name, minDamage, maxDamage, cost, damageType, weaponType);				
 				}
 				else if (itemType == 'A')
 				{
@@ -57,7 +57,7 @@ public class ItemFactory
 					maxDefence = Integer.parseInt((parts[3]).trim());
 					material = parts[5].trim();
 					
-					newItem = new Armour(name, cost, minDefence, maxDefence, material);
+					newItem = new Armour(name, minDefence, maxDefence, cost, material);
 				}
 				else if (itemType == 'P')
 				{
@@ -66,7 +66,7 @@ public class ItemFactory
 					minEffect = Integer.parseInt((parts[2]).trim());
 					maxEffect = Integer.parseInt((parts[3]).trim());
 					type = parts[5].trim().charAt(0);					
-					newItem = new Potion(name, cost, minEffect, maxEffect, type);
+					newItem = new Potion(name, minEffect, maxEffect, cost, type);
 					
 				}
 				else

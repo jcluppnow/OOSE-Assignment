@@ -49,14 +49,20 @@ public class ChooseArmour implements Selection
 		{
 			try
 			{
-				gameCharacter.setMainArmour(gameCharacter.getItemFromInventory(choice));
+				//Subtract 1 from Choice for 0 based indexing.
+				gameCharacter.setMainArmour(gameCharacter.getItemFromInventory(choice-1));
+				done = true;
 			}
 			catch (MainCharacterException mce)
 			{
 				System.out.println("Re-enter Choice, that was an invalid Armour. ");
 				choice = ui.getChoice("Press 0 to exit.");
 			}
-			
+			catch (IndexOutOfBoundsException invalidChoice)
+			{
+				System.out.println("Invalid Choice - Choose Weapon.");
+			}
+						
 			if (choice == 0)
 			{
 				done = true;

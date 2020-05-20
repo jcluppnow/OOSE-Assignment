@@ -81,7 +81,7 @@ public class Armour extends Item
 	
 	public String toString()
 	{
-		return super.toString() + " Minimum Defence: " + minDefence + " Maximum Defence: " + maxDefence + " Material: " + material;
+		return super.toString() + ", Minimum Defence: " + minDefence + ", Maximum Defence: " + maxDefence + ", Material: " + material;
 	}
 	
 	/*******************************************************************************

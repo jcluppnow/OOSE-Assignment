@@ -49,12 +49,18 @@ public class ChooseWeapon implements Selection
 		{
 			try
 			{
-				gameCharacter.setMainWeapon(gameCharacter.getItemFromInventory(choice));
+				//Subtract 1 from Choice for 0 based indexing.
+				gameCharacter.setMainWeapon(gameCharacter.getItemFromInventory(choice-1));
+				done = true;
 			}
 			catch (MainCharacterException mce)
 			{
 				System.out.println("Re-enter Choice, that was an invalid weapon. ");
 				choice = ui.getChoice("Press 0 to exit.");
+			}
+			catch (IndexOutOfBoundsException invalidChoice)
+			{
+				System.out.println("Invalid Choice - Choose Weapon.");
 			}
 			
 			if (choice == 0)
