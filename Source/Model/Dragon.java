@@ -9,6 +9,8 @@ package Model;
 
 public class Dragon extends Enemy
 {
+	private int chance;
+	
 	/*******************************************************************************
 	* Submodule: Dragon                                                            *
 	* Import:    None															   *
@@ -35,6 +37,39 @@ public class Dragon extends Enemy
 	public int getDefence()
 	{
 		return getRandomValue(minDefence, maxDefence);
+	}
+	
+	public String getAttackType()
+	{
+		return (" Raked you with it's vicious claws.");
+	}
+	
+	public int triggerSpecialAbility()
+	{
+		int damage = getDamage();
+		if (chance <= 10)
+		{
+			System.out.println("The Dragon drinks a health potion and gains 10 health. ");
+			System.out.println("The Dragon then attacks you with it's savage claws.");
+			heal(10);
+		}
+		else
+		{
+			System.out.println("The Dragon breaths a massive column of fire at you.");
+			damage = damage * 2;
+		}
+		return damage;
+	}
+	
+	public boolean hasAbilityTriggered()
+	{
+		boolean abilityProc = false;
+		chance = getRandomValue(1, 100);
+		if (chance <= 35)
+		{
+			abilityProc = true;
+		}
+		return abilityProc;
 	}
 	
 }

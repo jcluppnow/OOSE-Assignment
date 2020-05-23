@@ -11,18 +11,26 @@ package View;
 import Controller.*;
 import Model.Item;
 import Model.MainCharacter;
+import Model.Enemy;
 
 //Import Java Packages
 import java.util.*;
 
-public class UserInterface implements IObserver
+public class UserInterface implements MainCharacterObserver, EnemyObserver
 {
-	private MainCharacter gameCharacter;
+	private MainCharacter gameCharacter;				//User Interface Observes MainCharacter at all times
+	private Enemy enemy;								//User Interface Observes Enemy during Battle Only
 	private static Scanner input = new Scanner(System.in);
 	
 	public UserInterface(MainCharacter inGameCharacter)
 	{
 		gameCharacter = inGameCharacter;
+	}
+	
+	public UserInterface(MainCharacter inGameCharacter, Enemy inEnemy)
+	{
+		gameCharacter = inGameCharacter;
+		enemy = inEnemy;
 	}
 	
 	/*******************************************************************************
@@ -188,6 +196,7 @@ public class UserInterface implements IObserver
 			try
 			{
 				System.out.println(message);
+				System.out.print("INPUT: ");
 				choice = Integer.parseInt(input.nextLine());
 				
 				if (choice >= 0)
@@ -207,9 +216,14 @@ public class UserInterface implements IObserver
 		return choice;
 	}
 	
-	public void update()
+	public void updateMainCharacter()
 	{
 		displayUserStatistics();
+	}
+	
+	public void updateEnemy()
+	{
+		displayEnemyStatistics();
 	}
 	
 	public void displayUserStatistics()
@@ -217,6 +231,18 @@ public class UserInterface implements IObserver
 		System.out.println("\nCharacter Statistics: ");
 		System.out.println(gameCharacter.toString());
 		displayCharacterInventory(gameCharacter.getInventory());
+	}
+	
+	public void displayEnemyStatistics()
+	{
+		System.out.println("\nEnemy Statistics: ");
+		System.out.println(enemy.toString());
+	}
+	
+	public void displayEnemyStatistics(Enemy inEnemy)
+	{
+		System.out.println("\nEnemy Statistics: ");
+		System.out.println(inEnemy.toString());
 	}
 	
 	/*******************************************************************************

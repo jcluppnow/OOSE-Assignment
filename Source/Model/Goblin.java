@@ -37,6 +37,28 @@ public class Goblin extends Enemy
 		return getRandomValue(minDefence, maxDefence);
 	}
 	
+	public String getAttackType()
+	{
+		return (" Clobbered you with it's makeshift club.");
+	}
+	
+	public int triggerSpecialAbility()
+	{
+		System.out.println("The Goblin grabs it's makeshift club with 2 hands, and hits you for a CRITICAL hit.");
+		return (getDamage() + 3);
+	}
+	
+	public boolean hasAbilityTriggered()
+	{
+		boolean abilityProc = false;
+		int chance = getRandomValue(1, 100);
+		if (chance <= 50)
+		{
+			abilityProc = true;
+		}
+		return abilityProc;
+	}
+	
 }
 	
 	

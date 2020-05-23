@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         Item.java             			                              *
-* Purpose:          Parent class for all Items.									  *                                                      *
+* Purpose:          Parent class for all Items.									  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/

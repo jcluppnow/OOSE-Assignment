@@ -64,6 +64,11 @@ public class Potion extends Item
 		return maxEffect;
 	}
 	
+	public int calcEffect()
+	{
+		return getRandomValue(minEffect, maxEffect);
+	}
+	
 	public char getType()
 	{
 		return type;
@@ -134,5 +139,12 @@ public class Potion extends Item
 			validCharacter = false;
 		}
 		return validCharacter;
+	}
+	
+	private int getRandomValue(int inMinimum, int inMaximum)
+	{
+		int range = inMaximum - inMinimum + 1;
+		int value = (int) (Math.random() * range) + inMinimum;
+		return value;
 	}
 } 

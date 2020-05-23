@@ -1,7 +1,7 @@
 /**********************************************************************************
 * Author:           Jason Luppnow                                                 *
 * Filename:         MainCharacter.java                                            *
-* Purpose:          Handles all MainCharacter functionality.					  *                                                      *
+* Purpose:          Handles all MainCharacter functionality.					  *
 * Unit:             OOSE                                                          *
 * Last Modified:    27/04/2020                                                    *
 **********************************************************************************/
@@ -9,9 +9,9 @@ package Model;
 
 //Import Custom Packages
 import Controller.Exceptions.MainCharacterException;
-import Controller.IObservable;
+import Controller.MainCharacterObservable;
 import View.UserInterface;
-import View.IObserver;
+import View.MainCharacterObserver;
 import Model.Item;
 import Model.Armour;
 import Model.Weapon;
@@ -19,10 +19,10 @@ import Model.Weapon;
 //Import Java Packages
 import java.util.*;
 
-public class MainCharacter implements IObservable
+public class MainCharacter implements MainCharacterObservable
 {
 	//Classfields
-	private ArrayList<IObserver> observers;
+	private ArrayList<MainCharacterObserver> observers;
 	private String name;
 	private int maxHealth;
 	private int currentHealth;
@@ -40,7 +40,7 @@ public class MainCharacter implements IObservable
 	*******************************************************************************/
 	public MainCharacter()
 	{
-		observers = new ArrayList<IObserver>();
+		observers = new ArrayList<MainCharacterObserver>();
 		name = "";
 		maxHealth = 30;
 		currentHealth = maxHealth;
@@ -59,7 +59,7 @@ public class MainCharacter implements IObservable
 	********************************************************************************
 	*              Responsible for setting all MainCharacter classfields.          *
 	*******************************************************************************/
-	public void add(IObserver inObserver)
+	public void add(MainCharacterObserver inObserver)
 	{
 		observers.add(inObserver);
 	}
@@ -70,7 +70,7 @@ public class MainCharacter implements IObservable
 		notifyObservers();
 	}
 	
-	public void increaseHealth(int amount)
+	public void heal(int amount)
 	{
 		currentHealth = currentHealth + amount;
 		if (currentHealth > maxHealth)
@@ -85,9 +85,9 @@ public class MainCharacter implements IObservable
 		inventory.add(inItem);
 	}
 	
-	public void removeFromInventory(Item inItem)
+	public void removeFromInventory(int index)
 	{
-		//To be added.
+		inventory.remove(index);
 	}
 	
 	public void setMainWeapon(Item inItem) throws MainCharacterException
@@ -118,7 +118,7 @@ public class MainCharacter implements IObservable
 		}
 	}
 	
-	public void decreaseHealth(int amount)
+	public void takeDamage(int amount)
 	{
 		currentHealth = currentHealth - amount;
 		if (currentHealth < 0)
@@ -147,9 +147,9 @@ public class MainCharacter implements IObservable
 	*******************************************************************************/
 	public void notifyObservers()
 	{
-		for (IObserver observer : observers)
+		for (MainCharacterObserver observer : observers)
 		{
-			observer.update();
+			observer.updateMainCharacter();
 		}
 	}
 	
@@ -194,9 +194,26 @@ public class MainCharacter implements IObservable
 		return mainWeapon;
 	}
 	
+	//Calls it's weapoon's calcDamage method.
+	public int getDamage()
+	{
+		return mainWeapon.calcDamage();
+	}
+	
+	public String getWeaponName()
+	{
+		return mainWeapon.getItemName();
+	}
+	
 	public Item getArmour()
 	{
 		return mainArmour;
+	}
+	
+	//Calls it's armour's calcDefence method.
+	public int getDefence()
+	{
+		return mainArmour.calcDefence();
 	}
 	
 	public void displayInventory()

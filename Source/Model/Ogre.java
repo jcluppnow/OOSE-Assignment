@@ -37,6 +37,32 @@ public class Ogre extends Enemy
 		return getRandomValue(minDefence, maxDefence);
 	}
 	
+	public String getAttackType()
+	{
+		return (" Slammed you with it's fists");
+	}
+	
+	public int triggerSpecialAbility()
+	{
+		return (getDamage());
+	}
+	
+	public boolean hasAbilityTriggered()
+	{
+		boolean abilityProc = false;
+		int chance = getRandomValue(1, 100);
+		if (chance <= 20)
+		{
+			abilityProc = true;
+		}
+		return abilityProc;
+	}
+	
+	@Override 
+	public boolean hasSecondAttack()
+	{
+		return true;
+	}
 }
 	
 	

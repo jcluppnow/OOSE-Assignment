@@ -37,6 +37,27 @@ public class Slime extends Enemy
 		return getRandomValue(minDefence, maxDefence);
 	}
 	
+	public String getAttackType()
+	{
+		return (" Spat acid at you");
+	}
+	
+	public int triggerSpecialAbility()
+	{
+		System.out.println("The slime attempted to spit acid at you but nothing happened. ");
+		return 0;
+	}
+	
+	public boolean hasAbilityTriggered()
+	{
+		boolean abilityProc = false;
+		int chance = getRandomValue(1, 100);
+		if (chance <= 20)
+		{
+			abilityProc = true;
+		}
+		return abilityProc;
+	}
 }
 	
 	

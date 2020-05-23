@@ -8,6 +8,7 @@
 package Controller;
 
 //Import Custom Packages
+import Controller.EnemyFactory;
 import View.UserInterface;
 import Controller.Selection;
 import FileIO.ReadFile;
@@ -34,12 +35,13 @@ public class MenuController
 	public void run(MainCharacter gameCharacter, UserInterface ui)
 	{
 		ui.displayUserStatistics();											//Initial Display Method for User Statistics.
+		EnemyFactory ef = new EnemyFactory();
 		ArrayList<String> shopInventory = ((new ReadFile().readCSVFile()));	
 		goToShop = new Shop(shopInventory, ui, gameCharacter);
 		chooseCharacterName = new ChooseCharacterName(gameCharacter, ui);
 		chooseWeapon = new ChooseWeapon(gameCharacter, ui);
 		chooseArmour = new ChooseArmour(gameCharacter, ui);
-		startBattle = new StartBattle(gameCharacter, ui);
+		startBattle = new StartBattle(gameCharacter, ef);
 		selections = new HashMap<Integer, Selection>();
 		selections.put(1, goToShop);										//Creates new GoToShop Object as a Selections object.
 		selections.put(2, chooseCharacterName);								//Creates new ChooseCharacterName Object as a Selections object.

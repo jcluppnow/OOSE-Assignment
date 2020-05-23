@@ -9,12 +9,17 @@ package Model;
 
 //Import Custom Packages
 import Controller.Exceptions.EnemyException;
+import Controller.EnemyObservable;
+import View.EnemyObserver;
 
 //Import Java Packages
 import java.lang.Math;
+import java.util.*;
 
-public abstract class Enemy
+public abstract class Enemy implements EnemyObservable
 {
+	//Classfields
+	private ArrayList<EnemyObserver> observers;
 	protected String name;
 	protected int maxHealth;
 	protected int currentHealth;
@@ -32,6 +37,7 @@ public abstract class Enemy
 	*******************************************************************************/
 	public Enemy()
 	{
+		observers = new ArrayList<EnemyObserver>();
 		name = "";
 		maxHealth = 0;
 		currentHealth = 0;
@@ -54,6 +60,7 @@ public abstract class Enemy
 	{
 		if ((validateString(inName)) && (validateInteger(inMaxHealth)) && (validateInteger(inMinDamage)) && (validateInteger(inMaxDamage)) && (validateMinDefence(inMinDefence)) && (validateInteger(inMaxDefence)) && (validateInteger(inReward)))
 		{
+			observers = new ArrayList<EnemyObserver>();
 			name = inName;
 			maxHealth = inMaxHealth;
 			currentHealth = inMaxHealth;
@@ -70,6 +77,11 @@ public abstract class Enemy
 	********************************************************************************
 	*                Responsible for setting all Enemy classfields.                *
 	*******************************************************************************/
+	public void add(EnemyObserver inObserver)
+	{
+		observers.add(inObserver);
+	}
+		
 	public void setName(String inName) throws EnemyException
 	{
 		if (validateString(inName))
@@ -103,9 +115,19 @@ public abstract class Enemy
 		else
 		{
 			currentHealth = 0;
-			//Notify Observers
+		}
+		notifyObservers();
+	}
+	
+	public void heal(int inHealthGained)
+	{
+		currentHealth = currentHealth + inHealthGained;
+		if (currentHealth > maxHealth)
+		{
+			currentHealth = maxHealth;
 		}
 	}
+	
 	
 	public void setMinDamage(int inMinDamage) throws EnemyException
 	{
@@ -172,6 +194,19 @@ public abstract class Enemy
 	********************************************************************************
 	*               Responsible for accessing all Enemy classfields.               *
 	*******************************************************************************/
+	public void notifyObservers()
+	{
+		for (EnemyObserver observer : observers)
+		{
+			observer.updateEnemy();
+		}
+	}
+	
+	public boolean hasSecondAttack()
+	{
+		return false;
+	}
+	
 	public String toString()
 	{
 		return "Name: " + name + " Max Health: " + maxHealth + " Current Health: " + currentHealth + " Min Damage: " + minDamage + " Max Damage: " + maxDamage +  " Min Defence: " + minDefence + " Max Defence: " + maxDefence + " Gold Reward: " + reward + "\n";
@@ -191,9 +226,7 @@ public abstract class Enemy
 	{
 		return currentHealth;
 	}
-		
-	public abstract int getDamage();
-	
+			
 	protected int getRandomValue(int inMinimum, int inMaximum)
 	{
 		int range = inMaximum - inMinimum + 1;
@@ -202,6 +235,14 @@ public abstract class Enemy
 	}
 	
 	public abstract int getDefence();
+	
+	public abstract String getAttackType();
+	
+	public abstract boolean hasAbilityTriggered();
+	
+	public abstract int triggerSpecialAbility();
+	
+	public abstract int getDamage();
 	
 	public int getReward()
 	{
